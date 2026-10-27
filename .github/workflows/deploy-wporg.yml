@@ -1,0 +1,41 @@
+name: Deploy to WordPress.org
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release tag
+        uses: actions/checkout@v4
+      - name: Verify release tag and metadata
+        shell: bash
+        run: |
+          [[ "$GITHUB_REF_NAME" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          grep -Eq "^[[:space:]]*\* Version: $GITHUB_REF_NAME$" choicekit-for-woocommerce.php
+          grep -Fxq "Stable tag: $GITHUB_REF_NAME" readme.txt
+          find . -type f -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+          node --check assets/js/admin.js
+          node --check assets/js/frontend.js
+      - name: Build WordPress.org distribution
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp choicekit-for-woocommerce.php readme.txt dist/
+          cp -R includes assets dist/
+          test -f dist/choicekit-for-woocommerce.php
+          test -f dist/readme.txt
+          test ! -e dist/tests
+      - name: Deploy tag to WordPress.org SVN
+        uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: choicekit-for-woocommerce
+          BUILD_DIR: dist

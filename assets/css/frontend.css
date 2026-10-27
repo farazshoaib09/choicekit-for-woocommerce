@@ -1,0 +1,337 @@
+.choicekit-builder {
+	background: #ffffff;
+	border: 1px solid #e3e7ea;
+	border-radius: 8px;
+	box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+	margin: 24px 0;
+	overflow: hidden;
+}
+
+.choicekit-builder *,
+.choicekit-builder *::before,
+.choicekit-builder *::after {
+	box-sizing: border-box;
+}
+
+.choicekit-title {
+	background: #f7f9fb;
+	border-bottom: 1px solid #e3e7ea;
+	font-size: 20px;
+	line-height: 1.3;
+	margin: 0;
+	padding: 18px 20px;
+}
+
+.choicekit-group {
+	border-bottom: 1px solid #edf0f2;
+	margin: 0;
+	padding: 20px;
+}
+
+.choicekit-group-heading {
+	align-items: flex-start;
+	display: flex;
+	gap: 16px;
+	justify-content: space-between;
+	margin-bottom: 14px;
+}
+
+.choicekit-group-heading h4 {
+	font-size: 16px;
+	line-height: 1.35;
+	margin: 0;
+}
+
+.choicekit-group-heading p {
+	color: #667085;
+	font-size: 14px;
+	line-height: 1.45;
+	margin: 4px 0 0;
+}
+
+.choicekit-group-heading .choicekit-discount-rule {
+	color: #1d4ed8;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.choicekit-count {
+	background: #eff6ff;
+	border: 1px solid #bfdbfe;
+	border-radius: 999px;
+	color: #1d4ed8;
+	flex: 0 0 auto;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+	padding: 7px 10px;
+	white-space: nowrap;
+}
+
+.choicekit-options {
+	display: grid;
+	gap: 12px;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.choicekit-option {
+	align-items: center;
+	background: #ffffff;
+	border: 1px solid #d9e0e7;
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	gap: 12px;
+	margin: 0;
+	min-height: 86px;
+	padding: 12px;
+	position: relative;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.choicekit-option:hover {
+	border-color: #93c5fd;
+	box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+	transform: translateY(-1px);
+}
+
+.choicekit-option-selected,
+.choicekit-option:has(input:checked) {
+	border-color: #2563eb;
+	box-shadow: 0 0 0 1px #2563eb, 0 8px 18px rgba(37, 99, 235, 0.12);
+}
+
+.choicekit-option input {
+	accent-color: #2563eb;
+	flex: 0 0 auto;
+	margin: 0;
+}
+
+.choicekit-option-image {
+	background: #f8fafc;
+	border-radius: 6px;
+	flex: 0 0 56px;
+	overflow: hidden;
+}
+
+.choicekit-option-image img {
+	display: block;
+	height: 56px;
+	object-fit: cover;
+	width: 56px;
+}
+
+.choicekit-option-body {
+	display: grid;
+	gap: 4px;
+	min-width: 0;
+}
+
+.choicekit-option-name {
+	color: #111827;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+.choicekit-option-price {
+	color: #475467;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.choicekit-option-price del,
+.choicekit-total del {
+	opacity: 0.7;
+	font-weight: 400;
+}
+
+.choicekit-option-price ins,
+.choicekit-total ins {
+	text-decoration: none;
+}
+
+.choicekit-option-price del + ins,
+.choicekit-total del + ins {
+	margin-left: 6px;
+}
+
+.choicekit-summary {
+	align-items: center;
+	background: #111827;
+	color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	padding: 16px 20px;
+}
+
+.choicekit-summary span {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.choicekit-total {
+	color: #ffffff;
+	font-size: 20px;
+	line-height: 1;
+}
+
+.choicekit-error {
+	background: #fef2f2;
+	color: #b42318;
+	display: none;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 12px 20px;
+}
+
+.choicekit-error:not(:empty) {
+	display: block;
+}
+
+.woocommerce-cart-form .choicekit-cart-parent,
+.woocommerce-checkout-review-order-table .choicekit-cart-parent {
+	background: #f3f7fb;
+}
+
+.woocommerce-cart-form .choicekit-cart-parent .product-name > a,
+.woocommerce-cart-form .choicekit-cart-parent .product-name,
+.woocommerce-checkout-review-order-table .choicekit-cart-parent .product-name {
+	font-weight: 700;
+}
+
+.choicekit-instance-pill {
+	background: #e0f2fe;
+	border: 1px solid #bae6fd;
+	border-radius: 999px;
+	color: #075985;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 800;
+	line-height: 1;
+	margin-left: 8px;
+	padding: 5px 8px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.woocommerce-cart-form .choicekit-cart-parent td,
+.woocommerce-checkout-review-order-table .choicekit-cart-parent td {
+	border-bottom-color: #d8e4f0;
+}
+
+.woocommerce-cart-form .choicekit-cart-parent .product-name::before,
+.woocommerce-checkout-review-order-table .choicekit-cart-parent .product-name::before {
+	background: #2563eb;
+	border-radius: 999px;
+	color: #ffffff;
+	content: "Kit";
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1;
+	margin-right: 8px;
+	padding: 5px 7px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.woocommerce-cart-form .choicekit-cart-component,
+.woocommerce-checkout-review-order-table .choicekit-cart-component {
+	background: #fbfdff;
+}
+
+.woocommerce-cart-form .choicekit-cart-component .product-remove,
+.woocommerce-cart-form .choicekit-cart-component .product-thumbnail {
+	opacity: 0.45;
+}
+
+.woocommerce-cart-form .choicekit-cart-component .product-name,
+.woocommerce-checkout-review-order-table .choicekit-cart-component .product-name {
+	border-left: 3px solid #bfdbfe;
+	color: #475467;
+	padding-left: 16px;
+}
+
+.woocommerce-cart-form .choicekit-cart-component .product-name::before,
+.woocommerce-checkout-review-order-table .choicekit-cart-component .product-name::before {
+	color: #2563eb;
+	content: "Included item";
+	display: block;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1.2;
+	margin-bottom: 4px;
+	text-transform: uppercase;
+}
+
+.choicekit-component-name {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.35;
+}
+
+.choicekit-component-context {
+	color: #667085;
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.35;
+	margin-top: 3px;
+}
+
+.choicekit-cart-component dl.variation,
+.choicekit-cart-parent dl.variation {
+	font-size: 12px;
+	margin-top: 8px;
+}
+
+.choicekit-cart-component dl.variation dt,
+.choicekit-cart-parent dl.variation dt {
+	color: #1f2937;
+	font-weight: 700;
+}
+
+.choicekit-cart-lock,
+.choicekit-linked-qty,
+.choicekit-container-price {
+	color: #667085;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.choicekit-linked-qty,
+.choicekit-container-price {
+	background: #f2f4f7;
+	border: 1px solid #e4e7ec;
+	border-radius: 999px;
+	padding: 7px 10px;
+}
+
+.choicekit-cart-lock {
+	color: #98a2b3;
+	padding: 0 6px;
+}
+
+@media (max-width: 640px) {
+	.choicekit-title,
+	.choicekit-group,
+	.choicekit-summary {
+		padding-left: 14px;
+		padding-right: 14px;
+	}
+
+	.choicekit-group-heading,
+	.choicekit-summary {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.choicekit-options {
+		grid-template-columns: 1fr;
+	}
+}
