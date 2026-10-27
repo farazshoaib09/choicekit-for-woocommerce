@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="ChoiceKit CK monogram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101c39"/>
+      <stop offset="1" stop-color="#173d88"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#69d8ff"/>
+      <stop offset="1" stop-color="#3183ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="url(#bg)"/>
+  <circle cx="216" cy="46" r="127" fill="#5cbcff" opacity=".10"/>
+  <path d="M180 68h-70c-39 0-58 20-58 58v4c0 38 19 58 58 58h70" fill="none" stroke="#fff" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M112 96v64m3-32 43-35m-43 35 45 36" fill="none" stroke="url(#accent)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

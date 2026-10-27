@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1544 500" role="img" aria-label="ChoiceKit for WooCommerce banner">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d172e"/>
+      <stop offset=".58" stop-color="#142e62"/>
+      <stop offset="1" stop-color="#174caa"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4cc8ff"/>
+      <stop offset="1" stop-color="#3976ff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#f3f7ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="150%" height="170%">
+      <feDropShadow dx="0" dy="25" stdDeviation="26" flood-color="#02091e" flood-opacity=".33"/>
+    </filter>
+  </defs>
+  <rect width="1544" height="500" fill="url(#background)"/>
+  <circle cx="1270" cy="74" r="270" fill="#3180fa" opacity=".14"/>
+  <circle cx="1060" cy="525" r="255" fill="#4dbfff" opacity=".08"/>
+  <path d="M0 412C200 341 380 424 580 373S1020 309 1544 450" fill="none" stroke="#9ecbff" stroke-opacity=".10" stroke-width="2"/>
+  <path d="M0 440C246 362 438 453 654 390S1109 324 1544 471" fill="none" stroke="#9ecbff" stroke-opacity=".08" stroke-width="2"/>
+
+  <g transform="translate(100 91) scale(.35)">
+    <rect width="256" height="256" rx="52" fill="#fff" opacity=".12"/>
+    <path d="M180 68h-70c-39 0-58 20-58 58v4c0 38 19 58 58 58h70" fill="none" stroke="#fff" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M112 96v64m3-32 43-35m-43 35 45 36" fill="none" stroke="url(#accent)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="100" y="281" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="91" font-weight="700" letter-spacing="-4">Choice<tspan fill="#61caff">Kit</tspan></text>
+  <text x="104" y="338" fill="#c5d5f4" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="600">for WooCommerce</text>
+  <rect x="104" y="369" width="54" height="5" rx="2.5" fill="#61caff"/>
+  <text x="104" y="425" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="400">Build configurable product kits.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="906" y="59" width="558" height="382" rx="28" fill="url(#card)"/>
+  </g>
+  <text x="946" y="115" fill="#142444" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Build your kit</text>
+  <rect x="1327" y="87" width="94" height="32" rx="16" fill="#e9f2ff"/>
+  <text x="1374" y="109" text-anchor="middle" fill="#2863e8" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">3 selected</text>
+  <path d="M946 142H1424" stroke="#e3eaf3" stroke-width="2"/>
+
+  <g>
+    <rect x="946" y="171" width="142" height="158" rx="16" fill="#f6f9fe" stroke="#dbe5f3" stroke-width="2"/>
+    <rect x="1101" y="171" width="142" height="158" rx="16" fill="#f6f9fe" stroke="#dbe5f3" stroke-width="2"/>
+    <rect x="1256" y="171" width="142" height="158" rx="16" fill="#f6f9fe" stroke="#dbe5f3" stroke-width="2"/>
+    <circle cx="1017" cy="225" r="32" fill="#dceafe"/>
+    <path d="m991 235 26-38 26 38" fill="#3976ec" opacity=".72"/>
+    <rect x="1151" y="194" width="42" height="64" rx="10" fill="#cfdefb"/>
+    <rect x="1159" y="183" width="26" height="16" rx="6" fill="#4b89f1"/>
+    <circle cx="1327" cy="225" r="32" fill="#d8f0fc"/>
+    <path d="M1300 230c6-17 17-28 27-29 12 1 24 13 28 29" fill="#2ba4d9" opacity=".72"/>
+    <rect x="968" y="282" width="76" height="8" rx="4" fill="#b5c7df"/>
+    <rect x="1123" y="282" width="78" height="8" rx="4" fill="#b5c7df"/>
+    <rect x="1278" y="282" width="77" height="8" rx="4" fill="#b5c7df"/>
+    <rect x="968" y="298" width="48" height="6" rx="3" fill="#d4dfeb"/>
+    <rect x="1123" y="298" width="47" height="6" rx="3" fill="#d4dfeb"/>
+    <rect x="1278" y="298" width="50" height="6" rx="3" fill="#d4dfeb"/>
+    <circle cx="1072" cy="185" r="14" fill="#2e73ee"/>
+    <circle cx="1227" cy="185" r="14" fill="#2e73ee"/>
+    <circle cx="1382" cy="185" r="14" fill="#2e73ee"/>
+    <path d="m1066 185 4 4 8-9m143 5 4 4 8-9m143 5 4 4 8-9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <path d="M946 352H1424" stroke="#e3eaf3" stroke-width="2"/>
+  <text x="948" y="398" fill="#192d50" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Selected products</text>
+  <rect x="1251" y="370" width="171" height="46" rx="12" fill="url(#accent)"/>
+  <text x="1336.5" y="399" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Add to cart</text>
+</svg>

@@ -1,0 +1,28 @@
+name: Deploy WordPress.org artwork
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.wordpress-org/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-assets:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Deploy directory artwork
+        uses: 10up/action-wordpress-plugin-asset-update@3af0a1fe85f5f674c36e3c90bb6331e6fdaafdfd
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: choicekit-for-woocommerce
+          ASSETS_DIR: .wordpress-org
+          IGNORE_OTHER_FILES: 'true'

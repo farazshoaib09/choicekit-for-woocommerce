@@ -22,3 +22,15 @@ semantic versions such as `1.0.0`, matching the plugin header and `Stable tag` i
 
 Release deployment is triggered only by a Git version tag. A push to `main` runs
 checks without publishing a WordPress.org version.
+
+## Directory artwork
+
+The `.wordpress-org/` folder contains WordPress.org banners and icons. Its files
+use the exact names and sizes listed in the WordPress Plugin Handbook. Editable
+SVG artwork is in `design/wordpress-org/`.
+
+Pushing `.wordpress-org/` changes to `main` runs the asset-only deployment
+workflow. It updates the top-level SVN `assets/` directory without creating a
+plugin version or changing its install ZIP. The workflow can also be started
+manually from GitHub Actions. It ignores code differences between `main` and
+the published tag.
