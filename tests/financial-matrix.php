@@ -172,6 +172,8 @@ try {
 					'option'       => get_option( 'woocommerce_ship_to_countries' ),
 					'enabled'      => wc_shipping_enabled(),
 					'initialized'  => WC()->shipping()->enabled,
+					'instance'     => $shipping_instance,
+					'method_ids'   => array_keys( WC()->shipping()->get_shipping_methods() ),
 					'method_count' => wc_get_shipping_method_count( true ),
 					'needs'        => WC()->cart->needs_shipping(),
 					'show'         => WC()->cart->show_shipping(),
