@@ -164,6 +164,23 @@ try {
 	update_option( 'woocommerce_shipping_debug_mode', 'yes' );
 	WC()->session->set( 'chosen_shipping_methods', array( 'flat_rate:' . $shipping_instance ) );
 	WC()->cart->calculate_totals();
+	if ( abs( (float) WC()->cart->get_shipping_total() - 12 ) > 0.011 ) {
+		$calculated_packages = WC()->shipping()->get_packages();
+		error_log(
+			'ChoiceKit shipping diagnostic: ' . wp_json_encode(
+				array(
+					'option'       => get_option( 'woocommerce_ship_to_countries' ),
+					'enabled'      => wc_shipping_enabled(),
+					'initialized'  => WC()->shipping()->enabled,
+					'method_count' => wc_get_shipping_method_count( true ),
+					'needs'        => WC()->cart->needs_shipping(),
+					'show'         => WC()->cart->show_shipping(),
+					'country'      => WC()->customer->get_shipping_country(),
+					'rates'        => isset( $calculated_packages[0]['rates'] ) ? array_keys( $calculated_packages[0]['rates'] ) : array(),
+				)
+			)
+		);
+	}
 	choicekit_finance_assert( WC()->cart->get_shipping_total(), 12, 'Quantity-based shipping counts four selected units' );
 	choicekit_finance_assert( WC()->cart->get_total( 'edit' ), 122, 'Kit plus shipping total' );
 	++$checks;
