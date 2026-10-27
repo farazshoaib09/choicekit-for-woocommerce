@@ -27,6 +27,13 @@ The kit product is a zero-price container. The selected products carry the charg
 
 Test tax, shipping, and coupon combinations on a staging site before selling kits, especially when using third-party extensions. A product's optional customer instruction is informational; configured discount fields determine the actual price.
 
+== Screenshots ==
+
+1. Select products in a kit and see live discounted prices and the kit total.
+2. Configure choice groups, selection limits, products, and variations.
+3. Set group discounts, optional kit discounts, and product coupon behavior.
+4. View the kit and its linked selected products in the WooCommerce cart.
+
 == Installation ==
 
 1. Install and activate WooCommerce.
