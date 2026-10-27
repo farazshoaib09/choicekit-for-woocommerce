@@ -1,4 +1,5 @@
 === ChoiceKit for WooCommerce ===
+Contributors: farazshoaib
 Tags: woocommerce, product kits, product bundles, mix and match
 Requires at least: 6.0
 Tested up to: 7.1
