@@ -69,6 +69,7 @@ jobs:
           cp choicekit-for-woocommerce.php readme.txt /tmp/choicekit-wp/wp-content/plugins/choicekit-for-woocommerce/
           cp -R includes assets tests /tmp/choicekit-wp/wp-content/plugins/choicekit-for-woocommerce/
           wp plugin activate choicekit-for-woocommerce --path=/tmp/choicekit-wp
+          wp option update woocommerce_ship_to_countries all --path=/tmp/choicekit-wp
       - name: Run financial and cart integration tests
         shell: bash
         run: |
