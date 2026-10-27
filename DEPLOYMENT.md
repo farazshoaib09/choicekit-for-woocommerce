@@ -22,6 +22,10 @@ semantic versions such as `1.0.0`, matching the plugin header and `Stable tag` i
 
 Release deployment is triggered only by a Git version tag. A push to `main` runs
 checks without publishing a WordPress.org version.
+If a tag push is skipped or its workflow does not start, run **Deploy to
+WordPress.org** manually from GitHub Actions with the existing semantic version
+tag. The workflow checks out that tag and verifies its plugin and readme versions
+before deployment. Do not move a published tag.
 
 ## Directory artwork
 
