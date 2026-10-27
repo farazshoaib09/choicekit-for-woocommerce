@@ -4,7 +4,7 @@ Tags: woocommerce, product kits, product bundles, mix and match
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,10 @@ WooCommerce calculates them on the selected product lines. The kit container is 
 Coupons for selected products work normally. Product coupons targeting the kit can also apply to selected products when the option is enabled for that kit. Coupon behavior from third-party extensions should be tested on the store where it will be used.
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Fixed the missing product-coupon checkbox and aligned discount fields in the product editor.
 
 = 1.0.0 =
 

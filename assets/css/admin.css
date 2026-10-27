@@ -142,6 +142,42 @@
 	padding-bottom: 14px;
 }
 
+.choicekit-card-header p {
+	padding: 0;
+}
+
+.choicekit-coupon-card h3 {
+	font-size: 16px;
+	line-height: 1.3;
+	margin: 0;
+}
+
+.choicekit-coupon-card > p {
+	color: #646970;
+	font-size: 13px;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+}
+
+#choicekit_product_data .choicekit-coupon-option {
+	align-items: flex-start;
+	cursor: pointer;
+	display: flex;
+	float: none;
+	gap: 10px;
+	line-height: 1.5;
+	margin: 12px 0 8px;
+	padding: 0;
+	width: auto;
+}
+
+#choicekit_product_data .choicekit-coupon-option input[type="checkbox"] {
+	flex: 0 0 auto;
+	float: none;
+	margin: 3px 0 0;
+}
+
 .choicekit-setup-warnings {
 	margin: 0 0 16px !important;
 }
@@ -168,7 +204,7 @@
 }
 
 .choicekit-group-discount-grid {
-	align-items: end;
+	align-items: start;
 	grid-template-columns: minmax(230px, 420px) minmax(130px, 200px) minmax(130px, 200px);
 	margin-top: 14px;
 }

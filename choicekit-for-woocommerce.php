@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ChoiceKit for WooCommerce
  * Description: Create WooCommerce product kits, mix and match bundles, and custom boxes with flexible customer choices, live pricing, and stock-safe cart handling.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Faraz Shoaib
  * Text Domain: choicekit-for-woocommerce
  * License: GPLv2 or later
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CHOICEKIT_VERSION', '1.0.0' );
+define( 'CHOICEKIT_VERSION', '1.0.1' );
 define( 'CHOICEKIT_FILE', __FILE__ );
 define( 'CHOICEKIT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'CHOICEKIT_URL', plugin_dir_url( __FILE__ ) );

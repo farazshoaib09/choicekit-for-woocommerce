@@ -160,18 +160,18 @@ class ChoiceKit_Admin {
 						</label>
 					</div>
 				</div>
-			</div>
 
-			<div class="choicekit-card">
-				<h3><?php esc_html_e( 'Product coupons', 'choicekit-for-woocommerce' ); ?></h3>
-				<label>
-					<input type="checkbox" name="choicekit_coupon_targets_kit" value="yes" <?php checked( $config['coupon_targets_kit'], 'yes' ); ?>>
-					<?php esc_html_e( 'Allow product coupons targeting this kit to discount its selected products', 'choicekit-for-woocommerce' ); ?>
-				</label>
-				<p><?php esc_html_e( 'A fixed product coupon is shared across the selected products once per kit. Coupons targeting selected products directly continue to work normally.', 'choicekit-for-woocommerce' ); ?></p>
-			</div>
+				<div class="choicekit-card choicekit-coupon-card">
+					<h3><?php esc_html_e( 'Product coupons', 'choicekit-for-woocommerce' ); ?></h3>
+					<label class="choicekit-coupon-option" for="choicekit_coupon_targets_kit">
+						<input type="checkbox" id="choicekit_coupon_targets_kit" name="choicekit_coupon_targets_kit" value="yes" <?php checked( $config['coupon_targets_kit'], 'yes' ); ?>>
+						<span><?php esc_html_e( 'Allow product coupons targeting this kit to discount its selected products', 'choicekit-for-woocommerce' ); ?></span>
+					</label>
+					<p><?php esc_html_e( 'A fixed product coupon is shared across the selected products once per kit. Coupons targeting selected products directly continue to work normally.', 'choicekit-for-woocommerce' ); ?></p>
+				</div>
 
-			<?php wp_nonce_field( 'choicekit_save_product', 'choicekit_nonce' ); ?>
+				<?php wp_nonce_field( 'choicekit_save_product', 'choicekit_nonce' ); ?>
+			</div>
 		</div>
 
 		<script type="text/html" id="tmpl-choicekit-group-row">
