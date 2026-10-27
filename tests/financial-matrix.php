@@ -160,33 +160,16 @@ try {
 	WC()->customer->set_shipping_country( 'US' );
 	$shipping_zone = new WC_Shipping_Zone( 0 );
 	$shipping_instance = $shipping_zone->add_shipping_method( 'flat_rate' );
+	delete_transient( 'wc_shipping_method_count' );
 	update_option( 'woocommerce_flat_rate_' . $shipping_instance . '_settings', array( 'enabled' => 'yes', 'title' => 'ChoiceKit test shipping', 'tax_status' => 'taxable', 'cost' => '3 * [qty]' ) );
 	update_option( 'woocommerce_shipping_debug_mode', 'yes' );
 	WC()->session->set( 'chosen_shipping_methods', array( 'flat_rate:' . $shipping_instance ) );
 	WC()->cart->calculate_totals();
-	if ( abs( (float) WC()->cart->get_shipping_total() - 12 ) > 0.011 ) {
-		$calculated_packages = WC()->shipping()->get_packages();
-		error_log(
-			'ChoiceKit shipping diagnostic: ' . wp_json_encode(
-				array(
-					'option'       => get_option( 'woocommerce_ship_to_countries' ),
-					'enabled'      => wc_shipping_enabled(),
-					'initialized'  => WC()->shipping()->enabled,
-					'instance'     => $shipping_instance,
-					'method_ids'   => array_keys( WC()->shipping()->get_shipping_methods() ),
-					'method_count' => wc_get_shipping_method_count( true ),
-					'needs'        => WC()->cart->needs_shipping(),
-					'show'         => WC()->cart->show_shipping(),
-					'country'      => WC()->customer->get_shipping_country(),
-					'rates'        => isset( $calculated_packages[0]['rates'] ) ? array_keys( $calculated_packages[0]['rates'] ) : array(),
-				)
-			)
-		);
-	}
 	choicekit_finance_assert( WC()->cart->get_shipping_total(), 12, 'Quantity-based shipping counts four selected units' );
 	choicekit_finance_assert( WC()->cart->get_total( 'edit' ), 122, 'Kit plus shipping total' );
 	++$checks;
 	$shipping_zone->delete_shipping_method( $shipping_instance );
+	delete_transient( 'wc_shipping_method_count' );
 	delete_option( 'woocommerce_flat_rate_' . $shipping_instance . '_settings' );
 	$shipping_instance = 0;
 	WC()->session->set( 'chosen_shipping_methods', $old_chosen_shipping );
@@ -283,6 +266,7 @@ try {
 	WC()->cart->remove_coupon( $parent_percent->get_code() );
 
 	$shipping_instance = $shipping_zone->add_shipping_method( 'flat_rate' );
+	delete_transient( 'wc_shipping_method_count' );
 	update_option( 'woocommerce_flat_rate_' . $shipping_instance . '_settings', array( 'enabled' => 'yes', 'title' => 'ChoiceKit taxed shipping', 'tax_status' => 'taxable', 'cost' => '3 * [qty]' ) );
 	WC()->session->set( 'chosen_shipping_methods', array( 'flat_rate:' . $shipping_instance ) );
 	WC()->cart->calculate_totals();
@@ -298,6 +282,7 @@ try {
 	++$checks;
 	WC()->cart->remove_coupon( $parent_percent->get_code() );
 	$shipping_zone->delete_shipping_method( $shipping_instance );
+	delete_transient( 'wc_shipping_method_count' );
 	delete_option( 'woocommerce_flat_rate_' . $shipping_instance . '_settings' );
 	$shipping_instance = 0;
 	WC()->session->set( 'chosen_shipping_methods', $old_chosen_shipping );
@@ -382,6 +367,7 @@ try {
 	remove_filter( 'woocommerce_package_rates', $shipping_rate_filter );
 	if ( $shipping_instance && $shipping_zone ) {
 		$shipping_zone->delete_shipping_method( $shipping_instance );
+		delete_transient( 'wc_shipping_method_count' );
 		delete_option( 'woocommerce_flat_rate_' . $shipping_instance . '_settings' );
 	}
 	WC()->session->set( 'chosen_shipping_methods', $old_chosen_shipping );
