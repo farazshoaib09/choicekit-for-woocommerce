@@ -95,7 +95,7 @@ $old_shipping_country = WC()->customer->get_shipping_country();
 $created_order_id = 0;
 $checks = 0;
 
-foreach ( array( 'woocommerce_calc_taxes', 'woocommerce_calc_discounts_sequentially', 'woocommerce_prices_include_tax', 'woocommerce_price_num_decimals', 'woocommerce_tax_display_cart', 'woocommerce_shipping_tax_class', 'woocommerce_shipping_debug_mode' ) as $name ) {
+foreach ( array( 'woocommerce_calc_taxes', 'woocommerce_calc_discounts_sequentially', 'woocommerce_prices_include_tax', 'woocommerce_price_num_decimals', 'woocommerce_tax_display_cart', 'woocommerce_shipping_tax_class', 'woocommerce_shipping_debug_mode', 'woocommerce_ship_to_countries' ) as $name ) {
 	$old_options[ $name ] = get_option( $name );
 }
 
@@ -112,6 +112,7 @@ try {
 	update_option( 'woocommerce_calc_taxes', 'no' );
 	update_option( 'woocommerce_calc_discounts_sequentially', 'no' );
 	update_option( 'woocommerce_shipping_debug_mode', 'yes' );
+	update_option( 'woocommerce_ship_to_countries', 'all' );
 	update_option( 'woocommerce_price_num_decimals', '2' );
 
 	$parent_key = choicekit_finance_add_kit( $parent->get_id(), $parts );
