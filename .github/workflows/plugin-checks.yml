@@ -29,3 +29,49 @@ jobs:
           stable=$(sed -n 's/^Stable tag: //p' readme.txt | head -n1)
           [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
           test "$version" = "$stable"
+
+  woocommerce-integration:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: wordpress
+          MYSQL_USER: wordpress
+          MYSQL_PASSWORD: wordpress
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -u wordpress -pwordpress"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mysqli, zip
+          coverage: none
+      - name: Install WordPress and WooCommerce
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /tmp/wp-cli.phar
+          sudo install -m 755 /tmp/wp-cli.phar /usr/local/bin/wp
+          wp core download --path=/tmp/choicekit-wp --version=7.1.3
+          wp config create --path=/tmp/choicekit-wp --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=127.0.0.1:3306
+          wp core install --path=/tmp/choicekit-wp --url=http://localhost --title=ChoiceKit-CI --admin_user=admin --admin_password=ci-only-password --admin_email=ci@example.test --skip-email
+          wp plugin install woocommerce --path=/tmp/choicekit-wp --version=10.9.1 --activate
+          mkdir -p /tmp/choicekit-wp/wp-content/plugins/choicekit-for-woocommerce
+          cp choicekit-for-woocommerce.php readme.txt /tmp/choicekit-wp/wp-content/plugins/choicekit-for-woocommerce/
+          cp -R includes assets tests /tmp/choicekit-wp/wp-content/plugins/choicekit-for-woocommerce/
+          wp plugin activate choicekit-for-woocommerce --path=/tmp/choicekit-wp
+      - name: Run financial and cart integration tests
+        shell: bash
+        run: |
+          cd /tmp/choicekit-wp/wp-content/plugins/choicekit-for-woocommerce
+          php tests/financial-matrix.php
+          php tests/integration.php

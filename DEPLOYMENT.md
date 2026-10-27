@@ -9,6 +9,8 @@ semantic versions such as `1.0.0`, matching the plugin header and `Stable tag` i
    Use the WordPress.org SVN account name and a newly generated SVN password. Never
    put the password in Git, a workflow file, command arguments, or logs.
 3. Push reviewed source to `main` and wait for **Plugin checks** to pass.
+   This runs PHP and JavaScript syntax checks plus the financial and cart integration
+   suites against WordPress 7.1.3 and WooCommerce 10.9.1.
 4. Create and push an annotated version tag, for example `1.0.0` for the initial
    release. The deploy workflow validates the version and packages only the plugin
    entry file, `readme.txt`, `includes/`, and runtime `assets/`.
@@ -19,4 +21,4 @@ semantic versions such as `1.0.0`, matching the plugin header and `Stable tag` i
    its Release Management dashboard. Then verify the public listing and install ZIP.
 
 Release deployment is triggered only by a Git version tag. A push to `main` runs
-syntax and metadata checks without publishing a WordPress.org version.
+checks without publishing a WordPress.org version.
